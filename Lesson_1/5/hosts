@@ -1,0 +1,11 @@
+
+[Ubuntu]
+Linux_Ubuntu ansible_host=18.194.29.171 
+
+[Amazon_Linux]
+Amazon_Linux_CentOS ansible_host=18.159.132.17 
+Amazon_LInux_Node1 ansible_host=3.68.65.171
+[Linux_all:children]
+Ubuntu
+Amazon_Linux
+

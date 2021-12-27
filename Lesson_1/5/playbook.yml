@@ -1,4 +1,5 @@
-- hosts: appservers
+- become: true
+  hosts: Amazon_Linux
   vars:
     root_dir: "/data/nginx/html"
 
