@@ -1,0 +1,46 @@
+---
+- name: MySQL
+  hosts: Ubuntu
+  become: true
+
+  tasks:
+  - name: Install MySQL
+    apt:
+      name: mysql-server
+      state: absent
+      update_cache: true
+  - name: Install Python
+    apt:
+      name: python3-pymysql
+      state: absent
+      update_cache: true
+#  - name: Set up root user
+#    community.mysql.mysql_user:
+#      name: root
+#      password: hello
+#      login_user: root
+#      login_password: hello
+#      check_implicit_admin: true
+#      login_unix_socket: /var/run/mysqld/mysqld.sock
+#  - name: Remove anonimus users
+#    community.mysql.mysql_user:
+#      name:
+#      state: absent
+#      login_user: root
+#      login_password: hello
+#  - name: add user for mysql
+#    community.mysql.mysql_user:
+#      check_implicit_admin: true
+#      login_user: pavel
+#      login_password: present
+#      state: present
+
+# Install PHP
+#  - name: Install php and hph mysql
+#    apt:
+#      name: item
+#      state: latest
+#    with_items:
+#      - php-fpn
+#      - php-mysql
+

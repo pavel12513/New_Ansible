@@ -1,0 +1,32 @@
+---
+- name: Lesson 11
+  hosts: Amazon_Linux
+  become: yes
+
+  vars:
+    message1: Privet
+    message2: World
+    secret: sdsadadssadsa
+
+  tasks:
+  - name: Privet Secret
+    debug:
+      var: secret  # вывод какое то перемонной с названием secret
+
+  - debug:
+      msg: "Sekretnoe slovo: {{ secret }}"
+      
+  - name: Uptime system
+    shell: uptime
+    register: uptime
+
+  - debug:
+      var: uptime
+
+  - debug:
+      msg: "Vladelec this Servera --> {{ owner }}"
+
+  - set_fact: full_message="{{ message1 }} {{ message2 }} from {{ owner }}"
+
+  - debug:
+      msg: full_message

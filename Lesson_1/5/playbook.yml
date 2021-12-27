@@ -4,6 +4,8 @@
     root_dir: "/data/nginx/html"
 
   tasks:
+#    - name: Install ngixn
+      
     - name: create directory for nginx files
       file:
         path: "{{ root_dir }}"

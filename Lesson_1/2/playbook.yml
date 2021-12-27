@@ -1,12 +1,11 @@
 ---
-
-- hosts: appservers
+- hosts: Amazon_Linux
   tasks:
-    - name: Install EPEL repo
-      yum:
-        name: epel-release
-        state: present
-      become: yes
+#    - name: Install EPEL repo
+#      yum:
+#        name: epel-release
+#        state: present
+#      become: yes
 
     - name: install nginx server
       yum:

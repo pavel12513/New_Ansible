@@ -1,0 +1,13 @@
+---
+- hosts: Ubuntu
+  become: true
+
+  tasks:
+  - name: Create containters
+    community.docker.docker_container:
+      name: nginx
+      image: nginx
+      state: absent
+      ports:
+        - "80:80"
+      restart_policy: always
