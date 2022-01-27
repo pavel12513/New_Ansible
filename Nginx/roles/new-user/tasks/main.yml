@@ -1,4 +1,0 @@
----
-
-- import_tasks: new-user.yml
-  tags: ['new-user']
