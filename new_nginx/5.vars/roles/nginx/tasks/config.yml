@@ -13,6 +13,6 @@
         copy:
           src: "files/"
           dest: "{{ root_dir }}"
-          owner: nginx
+          owner: root
         notify:
           - reload nginx
