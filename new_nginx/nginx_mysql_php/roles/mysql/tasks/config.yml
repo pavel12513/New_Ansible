@@ -1,0 +1,15 @@
+---
+
+- name: Create DB and configurate MySQL
+  block:
+    - name: Create DB user
+      mysql_user:
+        user: wordpress
+        password: "{{ mysql_wordpress_password }}"
+        priv: "*.*:ALL,GRANT"
+        state: present
+
+    - name: Create DB
+      mysql_db:
+        db: wordpress
+        state: present

@@ -1,0 +1,15 @@
+---
+
+- name: reload nginx
+  service:
+    name: nginx
+    state: reloaded
+    daemon_reload: yes
+    enabled: yes
+- name: update nginx statics
+  copy:
+    src: "files/"
+    dest: "{{ root_dir }}"
+    owner: nginx
+  notify:
+    - reload nginx
