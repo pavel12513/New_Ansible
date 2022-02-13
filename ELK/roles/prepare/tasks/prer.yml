@@ -1,0 +1,25 @@
+---
+
+- service_facts:
+
+- name: Open port firewalld
+  block:
+    - name: Install wget
+      yum:
+        name: wget
+        state: present
+    - name: Add port to firewalld
+      firewalld:
+        port: "{{ item }}"
+        permanent: yes
+        state: enabled
+      loop:
+        - 3000/tcp
+        - 5601/tcp
+
+    - name: Reload firewalld
+      shell: firewall-cmd --reload
+      ignore_errors: true
+  when:
+    - "'firewalld.service' in ansible_facts.services"
+    - "ansible_facts.services['firewalld.service'].status != 'masked'"

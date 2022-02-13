@@ -1,7 +1,0 @@
----
-
-- hosts: appservers
-  roles:
-    - os/dnf-repos
-    - apps/nginx
-

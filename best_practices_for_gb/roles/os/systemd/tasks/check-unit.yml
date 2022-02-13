@@ -1,6 +1,0 @@
----
-
-- name: "Check if the {{ unit_name }} unit file exists"
-  stat:
-    path: "{{ systemd_defaults.unit_dir }}/{{ unit_name }}"
-  register: check_unit

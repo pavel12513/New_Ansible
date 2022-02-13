@@ -1,0 +1,11 @@
+---
+
+- name: Hostname
+  hosts: all
+  become: true
+
+  vars:
+    ip_address: {{ " ipv4.address " }}
+
+- tasks:
+  -

@@ -1,0 +1,26 @@
+---
+- name: install Prometheus
+  hosts: all
+  become: yes
+
+  vars:
+    file: prometheus
+
+- tasks:
+  - name: file
+    file:
+      path: etc/{{ "file" }}
+      state: directory
+      owner: root
+  - name: Add users
+    user:
+      name: {{ "file" }}
+      state: absent
+  - name: Install programm
+    yum:
+      name: {{ item }}
+      state: present
+      update_cache: 83600
+      loop:
+        - wget
+        - curl
